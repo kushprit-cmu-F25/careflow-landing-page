@@ -1,0 +1,14 @@
+.waveform {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  height: 20px;
+}
+
+.bar {
+  width: 2px;
+  height: 100%;
+  background: currentColor;
+  border-radius: 1px;
+  will-change: transform;
+}

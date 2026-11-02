@@ -1,0 +1,18 @@
+.check,
+.alert {
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: -2px;
+}
+
+.check {
+  color: var(--green);
+}
+
+.alert[data-tone='allergy'] {
+  color: var(--red);
+}
+
+.alert[data-tone='interaction'] {
+  color: var(--amber);
+}

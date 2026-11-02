@@ -1,0 +1,36 @@
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    transform 760ms var(--ease-in-out),
+    opacity 200ms ease;
+  transform: translate(420px, 260px);
+}
+
+.cursor[data-visible='true'] {
+  opacity: 1;
+}
+
+.name {
+  padding: 2px 7px;
+  margin: 12px 0 0 -2px;
+  font-size: 12px;
+  font-weight: 510;
+  color: #ffffff;
+  white-space: nowrap;
+  background: var(--green);
+  border-radius: 5px;
+}
+
+/* Touch screens have no cursor, so the walkthrough simply plays. */
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}

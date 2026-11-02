@@ -1,0 +1,197 @@
+/*
+ * The top answers two questions at a glance: who is this for, and what do they
+ * get. There is no site header, so the photo runs from the top of the page to
+ * its right edge and the logo sits in the copy column.
+ */
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  /* Stops short of the fold, so the next heading is cut off and invites a scroll. */
+  min-height: max(560px, calc(100svh - 112px));
+  background: var(--mint);
+}
+
+/* Lines the copy up with the page's content column. */
+.copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px 28px 40px max(var(--gutter), calc((100vw - var(--page-width)) / 2));
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 36px;
+  align-items: center;
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+}
+
+.link {
+  font-size: 15px;
+  font-weight: 510;
+  letter-spacing: -0.008em;
+  color: var(--text-2);
+  border-radius: 4px;
+  transition: color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--teal);
+  }
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.message {
+  margin-block: auto;
+  padding-top: 32px;
+}
+
+.title {
+  font-size: clamp(38px, 4.4vw, 60px);
+  font-weight: 590;
+  line-height: 1.06;
+  letter-spacing: -0.024em;
+  color: var(--text);
+}
+
+.line {
+  display: block;
+}
+
+.who {
+  color: var(--teal);
+}
+
+.lede {
+  max-width: 30em;
+  margin-top: 22px;
+  font-size: clamp(19px, 1.5vw, 21px);
+  line-height: 1.45;
+  letter-spacing: -0.014em;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+
+.capture {
+  margin-top: 24px;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 59% 50%;
+  transition: transform 500ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .photo:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.photo:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: -6px;
+}
+
+.play {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px 0 14px;
+  font-size: 14px;
+  font-weight: 510;
+  color: #ffffff;
+  background: var(--coral);
+  border-radius: 999px;
+  transition: transform 160ms var(--ease-out);
+}
+
+.photo:active .play {
+  transform: scale(0.97);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid currentColor;
+}
+
+.length {
+  font-weight: 400;
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .copy {
+    padding: 20px var(--gutter) 36px;
+  }
+
+  .message {
+    padding-top: 28px;
+  }
+
+  .photo {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .play {
+    bottom: 14px;
+    left: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .links {
+    gap: 4px 16px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo img {
+    transition: none;
+  }
+}

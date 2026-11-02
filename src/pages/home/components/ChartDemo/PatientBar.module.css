@@ -1,0 +1,58 @@
+.bar {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 160px minmax(0, 1.1fr) minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px 20px 10px 16px;
+  border-bottom: 1px solid var(--hair-strong);
+}
+
+.product {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 510;
+  color: var(--text);
+}
+
+.block {
+  min-width: 0;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 510;
+  letter-spacing: -0.011em;
+  color: var(--text);
+}
+
+.id {
+  font-weight: 510;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.meta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+/* Words stay neutral. Only the small icon carries colour. */
+.identity {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .bar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 16px;
+    padding: 12px 14px;
+  }
+}

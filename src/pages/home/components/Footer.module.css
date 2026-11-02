@@ -1,0 +1,42 @@
+.footer {
+  padding: 28px var(--gutter) 36px;
+  background: var(--spruce);
+  border-top: 1px solid var(--hair);
+}
+
+.inner {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.brand {
+  display: grid;
+  gap: 10px;
+}
+
+.home {
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.home:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.note {
+  max-width: 56ch;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-4);
+}
+
+@media (max-width: 560px) {
+  .inner {
+    flex-direction: column;
+  }
+}

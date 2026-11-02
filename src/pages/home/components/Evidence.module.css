@@ -1,0 +1,72 @@
+.section {
+  padding: var(--section-space) var(--gutter);
+  background: var(--peach);
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 56px;
+}
+
+.finding {
+  padding: 0 24px;
+  border-left: 1px solid var(--hair);
+}
+
+.finding:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.figure {
+  font-size: clamp(30px, 3.4vw, 40px);
+  font-weight: 510;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  color: var(--text);
+}
+
+.claim {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--text-2);
+}
+
+.source {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-3);
+  text-underline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .source:hover {
+    text-decoration: underline;
+  }
+}
+
+.source:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 32px;
+  }
+
+  .finding {
+    padding: 0;
+    border-left: 0;
+  }
+}

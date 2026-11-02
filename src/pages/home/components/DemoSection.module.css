@@ -1,0 +1,13 @@
+.section {
+  padding: var(--section-space) var(--gutter);
+  background: var(--mint);
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.stage {
+  margin-top: 40px;
+}

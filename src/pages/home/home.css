@@ -1,0 +1,146 @@
+/*
+ * A flat warm white page. Hairlines instead of tinted panels, and no decorative
+ * gradients anywhere. Dark surfaces, the product window and the close, set
+ * data-surface="dark" and inherit a second set of the same tokens.
+ */
+:root {
+  color-scheme: light;
+
+  --bg: #fffdf9;
+  --bg-raised: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #ecebe4;
+  --hair: rgb(11 31 28 / 9%);
+  --hair-strong: rgb(11 31 28 / 16%);
+  --text: #0b1f1c;
+  --text-2: #33473f;
+  --text-3: #4c615a;
+  --text-4: #8a9a94;
+  --rail: #0b1f1b;
+  --spruce: #06201c;
+  --mint: #d5f0e4;
+  --peach: #fdebdd;
+  --teal: #00695e;
+  --teal-deep: #064f47;
+  --coral: #cf4318;
+  --green: #0b7f71;
+  --amber: #9a6410;
+  --red: #b93d24;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --page-width: 1120px;
+  --rail-inset: 64px;
+  --gutter: clamp(20px, 5vw, 40px);
+  --section-space: clamp(72px, 10vw, 128px);
+
+  --lead-input-bg: #ffffff;
+  --lead-input-border: var(--hair-strong);
+  --lead-text: var(--text);
+  --lead-muted: var(--text-3);
+  --lead-focus: var(--text);
+  --lead-button-bg: var(--coral);
+  --lead-button-text: #ffffff;
+  --lead-button-radius: 8px;
+  --lead-button-font-size: 14px;
+  --lead-button-weight: 510;
+  --lead-error: var(--red);
+  --lead-radius: 8px;
+  --lead-height: 40px;
+  --lead-font-size: 14px;
+}
+
+[data-surface='dark'] {
+  color-scheme: dark;
+
+  --bg: #08090a;
+  --bg-raised: #0f1011;
+  --bg-card: #141516;
+  --bg-hover: #1c1d1f;
+  --hair: rgb(255 255 255 / 8%);
+  --hair-strong: rgb(255 255 255 / 14%);
+  --text: #f7f8f8;
+  --text-2: #d0d6e0;
+  --text-3: #8a8f98;
+  --text-4: #62666d;
+  --green: #4cb782;
+  --amber: #e2b250;
+  --red: #eb6f6f;
+
+  --lead-input-bg: rgb(255 255 255 / 7%);
+  --lead-input-border: var(--hair-strong);
+  --lead-text: var(--text);
+  --lead-muted: var(--text-3);
+  --lead-focus: var(--text);
+  --lead-button-bg: var(--coral);
+  --lead-button-text: #ffffff;
+  --lead-error: var(--red);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-feature-settings: 'cv01', 'ss03';
+  font-optical-sizing: auto;
+  line-height: 24px;
+  letter-spacing: -0.011em;
+  color: var(--text-3);
+  background: var(--bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 510;
+}
+
+/* Dotted rails mark the content column down the whole page, like a ruled form. */
+main {
+  position: relative;
+}
+
+main::before,
+main::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  content: '';
+  background: repeating-linear-gradient(to bottom, var(--hair-strong) 0 2px, transparent 2px 6px);
+}
+
+main::before {
+  left: calc(50% - var(--page-width) / 2 - var(--rail-inset));
+}
+
+main::after {
+  left: calc(50% + var(--page-width) / 2 + var(--rail-inset));
+}
+
+@media (max-width: 1290px) {
+  main::before,
+  main::after {
+    display: none;
+  }
+}
+
+::selection {
+  color: var(--bg);
+  background: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

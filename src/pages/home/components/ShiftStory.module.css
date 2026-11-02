@@ -1,0 +1,54 @@
+.section {
+  padding: var(--section-space) var(--gutter);
+  background: var(--peach);
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.visual {
+  display: grid;
+  height: 232px;
+}
+
+.momentTitle {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.012em;
+  color: var(--text);
+}
+
+.momentBody {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--text-3);
+}
+
+@media (max-width: 1040px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 40px;
+  }
+
+  .visual {
+    height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 36px;
+  }
+}

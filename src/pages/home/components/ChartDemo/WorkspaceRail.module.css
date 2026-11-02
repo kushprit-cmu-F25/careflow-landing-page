@@ -1,0 +1,107 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 14px 8px 12px;
+  color: rgb(255 255 255 / 76%);
+  background: var(--rail);
+}
+
+.group {
+  padding: 0 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: rgb(255 255 255 / 46%);
+}
+
+.list {
+  display: grid;
+  gap: 1px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 450;
+  color: inherit;
+  text-align: left;
+  white-space: nowrap;
+  border-radius: 6px;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover {
+    color: var(--text);
+    background: rgb(255 255 255 / 5%);
+  }
+}
+
+.row[data-active='true'] {
+  color: var(--text);
+  background: rgb(255 255 255 / 9%);
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: -2px;
+}
+
+.user {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 28px;
+  padding: 0 8px;
+  margin-top: auto;
+  font-size: 12.5px;
+}
+
+.avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 9px;
+  font-weight: 590;
+  color: var(--text);
+  background: rgb(255 255 255 / 14%);
+  border-radius: 50%;
+}
+
+/* On small screens the three workspaces become tabs under the patient bar. */
+@media (max-width: 960px) {
+  .rail {
+    padding: 6px;
+  }
+
+  .group,
+  .user {
+    display: none;
+  }
+
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2px;
+  }
+
+  .row {
+    gap: 5px;
+    justify-content: center;
+    height: 34px;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+
+  .row svg {
+    display: none;
+  }
+}

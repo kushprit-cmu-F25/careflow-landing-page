@@ -1,0 +1,68 @@
+.frame {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: 176px minmax(0, 1fr);
+  height: 620px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.006em;
+  color: var(--text-2);
+  background: #fbfaf5;
+  border: 1px solid var(--hair-strong);
+  border-radius: 12px;
+
+  --bg-hover: #ffffff;
+}
+
+.stage {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  animation: enter 240ms var(--ease-out);
+}
+
+.stage[data-view='chart'] {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.stage[data-view='chart'] > :last-child {
+  border-left: 1px solid var(--hair);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+/* The height stays put on phones, so the page below never jumps between screens. */
+@media (max-width: 960px) {
+  .frame {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .stage {
+    height: 640px;
+    overflow-y: auto;
+  }
+
+  .stage[data-view='chart'] {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+  }
+
+  .stage[data-view='chart'] > :last-child {
+    border-top: 1px solid var(--hair);
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    animation: none;
+  }
+}

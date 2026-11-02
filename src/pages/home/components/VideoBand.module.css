@@ -1,0 +1,139 @@
+.band {
+  padding: 40px var(--gutter) var(--section-space);
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.poster {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: 56px;
+  overflow: hidden;
+  text-align: left;
+  background: var(--bg-raised);
+  border: 1px solid var(--hair-strong);
+  border-radius: 12px;
+}
+
+.poster:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 32px);
+}
+
+.side + .side {
+  border-left: 1px solid var(--hair);
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.time {
+  margin-top: 6px;
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 510;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  color: var(--teal);
+  font-variant-numeric: tabular-nums;
+}
+
+.time[data-dim='true'] {
+  color: var(--coral);
+}
+
+.caption {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.rows {
+  display: grid;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  font-size: 13px;
+  color: var(--text-2);
+  border-top: 1px solid var(--hair);
+}
+
+.rowState[data-tone='open'] {
+  color: var(--text-3);
+}
+
+.rowState[data-tone='done'] {
+  color: var(--green);
+}
+
+/* Sits on the divider, inside the gutter the two columns leave clear. */
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--bg);
+  background: var(--coral);
+  border-radius: 50%;
+  transition: transform 180ms var(--ease-out);
+  transform: translate(-50%, -50%);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 11px solid currentColor;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .poster:hover .play {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+.poster:active .play {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+@media (max-width: 620px) {
+  .caption {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .poster {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side + .side {
+    border-top: 1px solid var(--hair);
+    border-left: 0;
+  }
+
+  .rows {
+    margin-top: 20px;
+  }
+}

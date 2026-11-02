@@ -1,0 +1,145 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #f7f6f0;
+}
+
+.header {
+  padding: 18px 16px 10px;
+}
+
+.heading {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.011em;
+  color: var(--text);
+}
+
+.people {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+.turns {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+  padding: 2px 16px 8px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.turns::-webkit-scrollbar {
+  display: none;
+}
+
+.turn {
+  flex-shrink: 0;
+  padding: 7px 10px 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  transition: border-color 200ms ease;
+  animation: enter 280ms var(--ease-out);
+}
+
+.turn[data-role='Patient'] {
+  background: #efeee6;
+}
+
+.turn[data-source='true'] {
+  border-color: rgb(11 31 28 / 34%);
+}
+
+.speaker {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 3px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 510;
+  color: var(--text);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  font-size: 7.5px;
+  font-weight: 590;
+  color: #f7f8f8;
+  background: var(--rail);
+  border-radius: 50%;
+}
+
+.avatar[data-role='Patient'] {
+  color: #6a4a22;
+  background: #f1e6d4;
+}
+
+.time {
+  font-weight: 400;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.line {
+  font-size: 12.5px;
+  line-height: 17px;
+  color: var(--text-2);
+}
+
+.mark {
+  color: inherit;
+  background: transparent;
+  border-radius: 2px;
+  box-shadow: inset 0 -1px 0 rgb(11 31 28 / 26%);
+  transition:
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.mark[data-active='true'] {
+  color: var(--text);
+  background: #cfeade;
+  box-shadow: none;
+}
+
+/* Leaves room on the right for the Companion button. */
+.controls {
+  display: flex;
+  flex-shrink: 0;
+  padding: 8px 64px 12px 16px;
+  border-top: 1px solid var(--hair);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (max-width: 960px) {
+  .turns {
+    flex: none;
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turn {
+    animation: none;
+  }
+
+  .turns {
+    scroll-behavior: auto;
+  }
+}
