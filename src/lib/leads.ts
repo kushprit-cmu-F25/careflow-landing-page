@@ -9,7 +9,7 @@ export type Lead = {
 
 export type SubmitResult = 'sent' | 'preview'
 
-export const isPreviewMode = (): boolean => config.leadForm.actionUrl === ''
+export const isPreviewMode = (): boolean => config.leadForm.actionUrl.length === 0
 
 /** Where this visitor came from, in the terms the signup sheet records. */
 export function leadSource(variant: PageVariant, search = window.location.search): string {

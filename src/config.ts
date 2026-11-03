@@ -3,7 +3,7 @@
  */
 export const config = {
   /** GA4 measurement ID, e.g. "G-ABC123DEF4". Empty means analytics stays off. */
-  gaMeasurementId: '',
+  gaMeasurementId: 'G-G2ZG05CRWS',
 
   /** Before/after concept video. YouTube, Google Drive or a direct .mp4 link. */
   videoUrl: 'https://www.youtube.com/watch?v=tmHvyqOXuro',
@@ -16,11 +16,12 @@ export const config = {
    * in preview mode: nothing is sent, and the page says so.
    */
   leadForm: {
-    actionUrl: '',
+    actionUrl:
+      'https://docs.google.com/forms/d/e/1FAIpQLSeIrD6RQK-XeuqdaJX40fMBDwRlq4_JuPA1MZmPslD5qSKR1A/formResponse',
     fields: {
-      name: '',
-      email: '',
-      source: '',
+      name: 'entry.1002223038',
+      email: 'entry.1670270954',
+      source: 'entry.1965999675',
     },
   },
 

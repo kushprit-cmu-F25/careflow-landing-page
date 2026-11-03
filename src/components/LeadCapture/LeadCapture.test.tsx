@@ -2,6 +2,16 @@ import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { leadStore } from '@/lib/leadStore'
 import { LeadCapture } from './LeadCapture'
+import type * as ConfigModule from '@/config'
+
+// Keep these tests offline: they cover the preview flow, so no signup is sent.
+vi.mock('@/config', async (importOriginal) => {
+  const actual = await importOriginal<typeof ConfigModule>()
+  return {
+    ...actual,
+    config: { ...actual.config, leadForm: { ...actual.config.leadForm, actionUrl: '' } },
+  }
+})
 
 describe('LeadCapture', () => {
   beforeEach(() => act(() => leadStore.reset()))
